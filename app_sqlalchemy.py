@@ -107,7 +107,7 @@ def delete_org(org_id):
   db.session.delete(org_record)
   db.session.commit()
 
-  return jsonify(org_schema.dump(org_record)), 200
+  return jsonify('Organization deleted'), 200
 
 
 @app.route('/orgs/activate/<org_id>', methods=['PUT'])
@@ -133,7 +133,7 @@ def deactivate_org(org_id):
   org_record.active = False
   db.session.commit()
 
-  return jsonify('Organization deleted'), 200
+  return jsonify(org_schema.dump(org_record)), 200
 
 #---------------------------------
 # USER ROUTES
